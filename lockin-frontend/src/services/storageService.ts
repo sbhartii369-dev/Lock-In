@@ -1,4 +1,4 @@
-import type { UserProfile, StudySession, Goal, Reflection } from '../types';
+import type { UserProfile, StudySession, Goal, Reflection, PredictionHistoryRecord } from '../types';
 
 const STORAGE_KEYS = {
   USER_PROFILE: 'lockin_user_profile',
@@ -6,6 +6,7 @@ const STORAGE_KEYS = {
   GOALS: 'lockin_goals',
   REFLECTIONS: 'lockin_reflections',
   ACTIVE_SESSION: 'lockin_active_session', // to survive reloads
+  PREDICTIONS: 'lockin_predictions',
 };
 
 const defaultProfile: UserProfile = {
@@ -90,6 +91,28 @@ export const storageService = {
     const refs = this.getReflections();
     refs.push(reflection);
     localStorage.setItem(STORAGE_KEYS.REFLECTIONS, JSON.stringify(refs));
+  },
+
+  // --- Predictions ---
+  getPredictionHistory(): PredictionHistoryRecord[] {
+    try {
+      const data = localStorage.getItem(STORAGE_KEYS.PREDICTIONS);
+      return data ? JSON.parse(data) : [];
+    } catch (e) {
+      return [];
+    }
+  },
+  savePredictionRecord(record: PredictionHistoryRecord): void {
+    const history = this.getPredictionHistory();
+    history.push(record);
+    localStorage.setItem(STORAGE_KEYS.PREDICTIONS, JSON.stringify(history));
+  },
+  deletePredictionRecord(id: string): void {
+    const history = this.getPredictionHistory().filter(r => r.id !== id);
+    localStorage.setItem(STORAGE_KEYS.PREDICTIONS, JSON.stringify(history));
+  },
+  clearPredictionHistory(): void {
+    localStorage.removeItem(STORAGE_KEYS.PREDICTIONS);
   },
 
   // --- Reset ---

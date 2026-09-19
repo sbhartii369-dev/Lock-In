@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-import { Target, Flame, BrainCircuit, CheckCircle } from 'lucide-react';
+import { Target, Flame, BrainCircuit, CheckCircle, TrendingUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { storageService } from '../services/storageService';
 
 const weeklyData = [
@@ -21,6 +22,8 @@ export default function Dashboard() {
     const sessions = storageService.getSessions();
     setSessionsCompleted(sessions.filter(s => s.status === 'completed').length);
   }, []);
+
+  const latestPrediction = storageService.getPredictionHistory()[0];
 
   return (
     <div className="p-8 max-w-6xl mx-auto space-y-8">
@@ -49,6 +52,46 @@ export default function Dashboard() {
               </BarChart>
             </ResponsiveContainer>
           </div>
+        </div>
+
+        {/* PERFORMANCE FORECAST */}
+        <div className="bg-surface p-6 rounded-2xl border border-border flex flex-col justify-between relative overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
+          
+          <div>
+            <h2 className="text-xl font-bold mb-6 flex items-center gap-2 relative">
+              <BrainCircuit className="text-primary" size={24} /> 
+              Performance Forecast
+            </h2>
+            
+            {latestPrediction ? (
+              <div className="space-y-4 relative">
+                <div className="flex items-end gap-3">
+                  <span className="text-5xl font-black text-foreground">{latestPrediction.result.score}</span>
+                  <span className={`text-sm font-bold px-2 py-1 rounded border ${
+                    latestPrediction.result.category === 'Excellent' ? 'border-primary text-primary bg-primary/10' :
+                    latestPrediction.result.category === 'Good' ? 'border-blue-400 text-blue-400 bg-blue-400/10' :
+                    latestPrediction.result.category === 'Needs Improvement' ? 'border-orange-500 text-orange-500 bg-orange-500/10' :
+                    'border-error text-error bg-error/10'
+                  }`}>
+                    {latestPrediction.result.category}
+                  </span>
+                </div>
+                <div className="text-muted flex items-center gap-2 font-medium">
+                  Trend: <span className={latestPrediction.result.trend === 'Improving' ? 'text-primary' : latestPrediction.result.trend === 'Declining' ? 'text-error' : ''}>{latestPrediction.result.trend}</span>
+                  {latestPrediction.result.trend === 'Improving' && <TrendingUp size={16} className="text-primary" />}
+                </div>
+              </div>
+            ) : (
+              <div className="text-muted italic relative py-4">
+                Your performance forecast is waiting.
+              </div>
+            )}
+          </div>
+
+          <Link to="/prediction" className="mt-6 w-full py-3 px-4 bg-surface-hover hover:bg-surface border border-border rounded-lg text-center font-bold transition-colors relative">
+            {latestPrediction ? 'View Prediction' : 'Generate Forecast'}
+          </Link>
         </div>
 
         {/* Daily Plan */}

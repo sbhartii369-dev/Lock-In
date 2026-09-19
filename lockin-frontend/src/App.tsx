@@ -6,6 +6,7 @@ import Techniques from './pages/Techniques';
 import BreakZone from './pages/BreakZone';
 import Goals from './pages/Goals';
 import Analytics from './pages/Analytics';
+import PerformancePrediction from './pages/PerformancePrediction';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <NavLink to="/break" icon={<BrainCircuit size={20} />} label="Break Zone" />
             <NavLink to="/goals" icon={<Target size={20} />} label="Goals" />
             <NavLink to="/analytics" icon={<BarChart2 size={20} />} label="Analytics" />
+            <NavLink to="/prediction" icon={<BrainCircuit size={20} />} label="AI Prediction" />
           </div>
 
           <div className="mt-auto">
@@ -40,6 +42,7 @@ function App() {
             <Route path="/break" element={<BreakZone />} />
             <Route path="/goals" element={<Goals />} />
             <Route path="/analytics" element={<Analytics />} />
+            <Route path="/prediction" element={<PerformancePrediction />} />
             <Route path="/settings" element={<div className="p-8">Settings (WIP)</div>} />
           </Routes>
         </main>

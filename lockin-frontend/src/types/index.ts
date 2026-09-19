@@ -47,3 +47,5 @@ export interface Reflection {
   revise: string;
   timestamp: number;
 }
+
+export * from './prediction';

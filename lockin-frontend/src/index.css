@@ -27,12 +27,14 @@
 }
 
 .dark {
-  --bg: #0f172a;
-  --surface: #1e293b;
-  --surface-hover: #334155;
-  --border: #334155;
-  --fg: #f8fafc;
-  --muted: #94a3b8;
+  --bg: #0B1220;
+  --surface: #162238;
+  --surface-hover: #1D2A3D;
+  --border: #2A3A52;
+  --fg: #F8FAFC;
+  --muted: #94A3B8;
+  --primary: #14B8A6;
+  --primary-hover: #0d9488;
 }
 
 body {

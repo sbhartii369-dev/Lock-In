@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { storageService } from '../services/storageService';
 import { v4 as uuidv4 } from 'uuid';
-import { StudySession } from '../types';
+import type { StudySession } from '../types';
 import { AlertTriangle } from 'lucide-react';
 
 export default function Study() {

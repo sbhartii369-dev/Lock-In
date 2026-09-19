@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { storageService } from '../services/storageService';
+import { useNavigate } from 'react-router-dom';
 
 export default function BreakZone() {
   const navigate = useNavigate();
-  const location = useLocation();
   const [timeLeft, setTimeLeft] = useState(5 * 60); // 5 minutes default
   const [activeGame, setActiveGame] = useState<string | null>(null);
 

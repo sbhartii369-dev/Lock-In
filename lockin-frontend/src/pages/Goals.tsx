@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { storageService } from '../services/storageService';
-import { Goal } from '../types';
+import type { Goal } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
 export default function Goals() {

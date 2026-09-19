@@ -1,4 +1,4 @@
-import { UserProfile, StudySession, Goal, Reflection } from '../types';
+import type { UserProfile, StudySession, Goal, Reflection } from '../types';
 
 const STORAGE_KEYS = {
   USER_PROFILE: 'lockin_user_profile',

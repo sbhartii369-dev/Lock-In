@@ -14,7 +14,7 @@ const weeklyData = [
 ];
 
 export default function Dashboard() {
-  const [profile, setProfile] = useState(storageService.getProfile());
+  const [profile] = useState(storageService.getProfile());
   const [sessionsCompleted, setSessionsCompleted] = useState(0);
 
   useEffect(() => {

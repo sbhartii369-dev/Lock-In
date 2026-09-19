@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { storageService } from '../services/storageService';
 
 export default function Analytics() {
-  const [profile, setProfile] = useState(storageService.getProfile());
+  const [profile] = useState(storageService.getProfile());
 
   return (
     <div className="p-8 max-w-4xl mx-auto">

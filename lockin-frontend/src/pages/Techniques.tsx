@@ -17,7 +17,7 @@ const techniques = [
 
 export default function Techniques() {
   return (
-    <div className="p-8 max-w-4xl mx-auto">
+    <div className="p-4 md:p-8 max-w-4xl mx-auto space-y-8">
       <h1 className="text-3xl font-bold mb-2">Study Techniques</h1>
       <p className="text-muted mb-8">Discover the right methodology for your current task.</p>
 

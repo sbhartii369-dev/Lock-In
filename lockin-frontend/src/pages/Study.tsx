@@ -144,11 +144,11 @@ export default function Study() {
   };
 
   return (
-    <div className="p-8 max-w-4xl mx-auto min-h-[80vh] flex flex-col justify-center">
+    <div className="p-4 md:p-8 max-w-4xl mx-auto min-h-[80vh] flex flex-col justify-center">
       
       {phase === 'setup' && (
-        <div className="bg-surface border border-border p-8 rounded-2xl max-w-xl mx-auto w-full shadow-lg">
-          <h1 className="text-3xl font-bold mb-8 text-center">Configure Session</h1>
+        <div className="bg-surface border border-border p-6 md:p-8 rounded-2xl max-w-xl mx-auto w-full shadow-lg">
+          <h1 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">Configure Session</h1>
           <div className="space-y-6">
             <div>
               <label className="block text-sm text-muted mb-2">Subject</label>
@@ -158,7 +158,7 @@ export default function Study() {
               <label className="block text-sm text-muted mb-2">Goal</label>
               <input className="w-full bg-surface-hover border border-border p-3 rounded-lg focus:outline-none focus:border-primary" placeholder="e.g. Complete Normalization" value={form.goal} onChange={e => setForm({...form, goal: e.target.value})} />
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1">
                 <label className="block text-sm text-muted mb-2">Duration (min)</label>
                 <input type="number" className="w-full bg-surface-hover border border-border p-3 rounded-lg focus:outline-none focus:border-primary" value={form.duration} onChange={e => setForm({...form, duration: parseInt(e.target.value)})} />
@@ -185,14 +185,14 @@ export default function Study() {
       )}
 
       {phase === 'committed' && (
-        <div className="bg-surface border border-border p-10 rounded-2xl max-w-xl mx-auto w-full text-center shadow-lg">
-          <h2 className="text-3xl font-bold mb-6 text-orange-400">Study Commitment</h2>
-          <p className="text-xl mb-10 leading-relaxed">
+        <div className="bg-surface border border-border p-6 md:p-10 rounded-2xl max-w-xl mx-auto w-full text-center shadow-lg">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-orange-500">Study Commitment</h2>
+          <p className="text-lg md:text-xl mb-8 md:mb-10 leading-relaxed">
             &quot;I commit to studying <strong className="text-primary">{form.subject}</strong> for <strong>{form.duration} minutes</strong> and completing my goal: <strong className="text-primary">{form.goal}</strong>.&quot;
           </p>
-          <div className="flex gap-4 justify-center">
-            <button className="px-6 py-3 border border-border rounded-lg hover:bg-surface-hover font-medium transition-colors" onClick={() => setPhase('setup')}>Go Back</button>
-            <button className="px-8 py-3 bg-primary hover:bg-primary-hover text-white rounded-lg font-bold transition-colors" onClick={startSession}>I&apos;M COMMITTED</button>
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
+            <button className="w-full md:w-auto px-6 py-3 border border-border rounded-lg hover:bg-surface-hover font-medium transition-colors" onClick={() => setPhase('setup')}>Go Back</button>
+            <button className="w-full md:w-auto px-8 py-3 bg-primary hover:bg-primary-hover text-white rounded-lg font-bold transition-colors" onClick={startSession}>I&apos;M COMMITTED</button>
           </div>
         </div>
       )}
@@ -206,18 +206,18 @@ export default function Study() {
             </div>
           )}
           
-          <div className="text-2xl text-muted font-medium mb-2">{form.subject} &mdash; {form.technique}</div>
-          <div className="text-4xl font-bold mb-16 text-primary">{form.goal}</div>
+          <div className="text-xl md:text-2xl text-muted font-medium mb-2">{form.subject} &mdash; {form.technique}</div>
+          <div className="text-2xl md:text-4xl font-bold mb-8 md:mb-16 text-primary">{form.goal}</div>
           
-          <div className="text-[10rem] font-black font-mono leading-none tracking-tighter text-shadow-glow">
+          <div className="text-7xl sm:text-[8rem] md:text-[10rem] font-black font-mono leading-none tracking-tighter text-shadow-glow flex justify-center w-full">
             {formatTime(timeLeft)}
           </div>
 
-          <div className="mt-20 flex justify-center gap-6">
-            <button className="px-6 py-3 border border-error text-error hover:bg-error/10 rounded-lg font-medium transition-colors" onClick={endSessionEarly}>
+          <div className="mt-12 md:mt-20 flex flex-col sm:flex-row justify-center gap-4 md:gap-6 px-4">
+            <button className="w-full sm:w-auto px-6 py-3 border border-error text-error hover:bg-error/10 rounded-lg font-medium transition-colors" onClick={endSessionEarly}>
               End Session
             </button>
-            <button className="px-6 py-3 border border-border hover:bg-surface-hover rounded-lg font-medium transition-colors" onClick={logDistraction}>
+            <button className="w-full sm:w-auto px-6 py-3 border border-border hover:bg-surface-hover rounded-lg font-medium transition-colors" onClick={logDistraction}>
               I&apos;m Distracted
             </button>
           </div>

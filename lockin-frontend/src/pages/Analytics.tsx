@@ -5,8 +5,8 @@ export default function Analytics() {
   const [profile] = useState(storageService.getProfile());
 
   return (
-    <div className="p-8 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-8">Analytics Dashboard</h1>
+    <div className="p-4 md:p-8 max-w-4xl mx-auto space-y-8">
+      <h1 className="text-3xl font-bold flex items-center gap-3">Analytics Dashboard</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="bg-surface border border-border p-6 rounded-2xl text-center shadow-sm">

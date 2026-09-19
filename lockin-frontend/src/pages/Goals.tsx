@@ -27,8 +27,10 @@ export default function Goals() {
   };
 
   return (
-    <div className="p-8 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-8">Study Goals</h1>
+    <div className="p-4 md:p-8 max-w-4xl mx-auto space-y-8">
+      <div className="flex justify-between items-center flex-wrap gap-4">
+        <h1 className="text-3xl font-bold">Study Goals</h1>
+      </div>
       
       <div className="bg-surface border border-border p-6 rounded-2xl mb-8 shadow-sm">
         <h2 className="text-xl font-bold mb-4">Create New Goal</h2>

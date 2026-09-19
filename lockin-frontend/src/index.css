@@ -9,19 +9,25 @@
   --color-muted: var(--muted);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-violet: var(--violet);
+  --color-orange: var(--orange);
   --color-error: var(--error);
   --color-success: var(--success);
 }
 
 :root {
-  --bg: #f8fafc;
-  --surface: #ffffff;
-  --surface-hover: #f1f5f9;
-  --border: #e2e8f0;
-  --fg: #0f172a;
-  --muted: #64748b;
-  --primary: #10b981;
-  --primary-hover: #059669;
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-hover: #F1F5F9;
+  --border: #E2E8F0;
+  --fg: #0F172A;
+  --muted: #475569;
+  --primary: #0F9F8F;
+  --primary-hover: #0d887a;
+  --secondary: #0284C7;
+  --violet: #7C3AED;
+  --orange: #D97706;
   --error: #ef4444;
   --success: #10b981;
 }
@@ -35,6 +41,11 @@
   --muted: #94A3B8;
   --primary: #14B8A6;
   --primary-hover: #0d9488;
+  --secondary: #38BDF8;
+  --violet: #8B5CF6;
+  --orange: #F59E0B;
+  --error: #ef4444;
+  --success: #10b981;
 }
 
 body {

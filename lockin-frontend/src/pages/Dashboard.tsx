@@ -26,23 +26,23 @@ export default function Dashboard() {
   const latestPrediction = storageService.getPredictionHistory()[0];
 
   return (
-    <div className="p-8 max-w-6xl mx-auto space-y-8">
-      <h1 className="text-4xl font-bold">Welcome back, {profile.name}!</h1>
-      <p className="text-muted text-lg">Stop planning. Start focusing.</p>
+    <div className="p-4 md:p-8 max-w-6xl mx-auto space-y-6 md:space-y-8">
+      <h1 className="text-2xl md:text-4xl font-bold">Welcome back, {profile.name}!</h1>
+      <p className="text-muted text-sm md:text-lg">Stop planning. Start focusing.</p>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         <StatCard title="Focused Time" value={`${Math.floor(profile.totalFocusedTime / 60)}h ${profile.totalFocusedTime % 60}m`} icon={<BrainCircuit className="text-primary" />} />
-        <StatCard title="Sessions" value={`${sessionsCompleted}`} icon={<Target className="text-blue-500" />} />
-        <StatCard title="Current Streak" value={`${profile.currentStreak} days`} icon={<Flame className="text-orange-500" />} />
-        <StatCard title="Focus Score" value={`${profile.focusScore}/100`} icon={<CheckCircle className="text-green-500" />} />
+        <StatCard title="Sessions" value={`${sessionsCompleted}`} icon={<Target className="text-secondary" />} />
+        <StatCard title="Current Streak" value={`${profile.currentStreak} days`} icon={<Flame className="text-orange" />} />
+        <StatCard title="Focus Score" value={`${profile.focusScore}/100`} icon={<CheckCircle className="text-success" />} />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
         {/* Chart */}
-        <div className="col-span-2 bg-surface p-6 rounded-2xl border border-border">
-          <h2 className="text-xl font-bold mb-6">Weekly Study Hours</h2>
-          <div className="h-64">
+        <div className="col-span-1 lg:col-span-2 bg-surface p-4 md:p-6 rounded-2xl border border-border overflow-hidden">
+          <h2 className="text-lg md:text-xl font-bold mb-4 md:mb-6">Weekly Study Hours</h2>
+          <div className="h-48 md:h-64 -ml-4 md:ml-0">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={weeklyData}>
                 <XAxis dataKey="day" stroke="#64748b" />

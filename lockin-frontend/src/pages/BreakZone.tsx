@@ -22,8 +22,8 @@ export default function BreakZone() {
   };
 
   return (
-    <div className="p-8 max-w-4xl mx-auto flex flex-col items-center">
-      <h1 className="text-4xl font-bold mb-4">🎉 You earned a break!</h1>
+    <div className="p-4 md:p-8 max-w-4xl mx-auto min-h-[80vh] flex flex-col justify-center text-center space-y-8">
+      <h1 className="text-4xl font-bold text-primary">🎉 You earned a break!</h1>
       <p className="text-xl text-muted mb-8">Take a moment to refresh your mind.</p>
 
       <div className="text-6xl font-black font-mono text-primary mb-12">
